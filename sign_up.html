@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポーター教授のファイブフォース分析</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css"> -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1>ポーター教授のファイブフォース分析</h1>
+        </div>
+        <div class="poter-image">
+            <img src="images/michael porter.png" alt="マイケル・ポーター">
+        </div>
+        <h3>アカウント登録</h3>
+        <form id="signupForm">
+            <input type="text" id="newUserId" placeholder="設定するユーザーIDを入力">
+            <input type="password" id="newPassword" placeholder="設定するパスワードを入力">
+            <button type="submit">アカウント登録</button>
+        </form>
+        <p>アカウントをお持ちの方は<a href="index.html">こちら</a>からログインしてください。</p>
+    </div>
+
+    <footer>
+        <p>© 2024 COM-office</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+    <script>
+        $("#signupForm").on("submit", function (event) {
+            event.preventDefault();
+            const newUserId = $("#newUserId").val();
+            const newPassword = $("#newPassword").val();
+            console.log(newUserId);
+
+            // bcryptjsをbcryptとして定義
+            const bcrypt = dcodeIO.bcrypt;
+
+            // パスワードをbcryptでハッシュ化
+            const hashedPassword = bcrypt.hashSync(newPassword, 10);
+
+            // LocalStrageに保存
+            localStorage.setItem(newUserId, hashedPassword);
+            alert("アカウント登録完了");
+
+            // ログインページにリダイレクト
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+
+</html>

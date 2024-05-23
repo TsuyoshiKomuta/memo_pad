@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポーター教授のファイブフォース分析</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css"> -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>ポーター教授のファイブフォース分析</h1>
+        </div>
+        <div class="poter-image">
+            <img src="images/michael porter.png" alt="マイケル・ポーター">
+        </div>
+        <p style="font-weight: 300; font-family: Arial, sans-serif;">
+            「ポーター教授のファイブフォース分析」は、あなたが所属する会社の環境分析をWeb上で行えるサイトです。
+        </p>
+        <p style="line-height: 1.6;">
+            「新規参入の脅威」「買い手の交渉力」「売り手の交渉力」「代替品の脅威」「業界内競争」の５つの項目について、<br>
+            各３つずつの質問に答えることで、ハーバード大学教授のマイケル・ポーター氏が提唱する<br>
+            「ファイブフォース」フレームワークに沿った自社の外部環境の可視化が行えます。
+        </p>
+        
+        <form id="signinForm">
+            <input type="text" id="userId" placeholder="ユーザーID">
+            <input type="password" id="password" placeholder="パスワード">
+            <button type="submit-login">ログイン</button>
+        </form>
+        <p>アカウントがない場合は<a href="sign_up.html">こちら</a>からアカウントを作成してください。</p>
+    </div>
+
+    <footer>
+        <p>© 2024 COM-office</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+    <script>
+        $("#signinForm").on("submit", function (event) {
+            event.preventDefault();
+            const userId = $("#userId").val();
+            const password = $("#password").val();
+
+            // bcryptjsをbcryptとして定義
+            const bcrypt = dcodeIO.bcrypt;
+            
+            // LocalStrageからハッシュ化されたパスワードを取得
+            const hashedPassword = localStorage.getItem(userId);
+
+            if (hashedPassword && bcrypt.compareSync(password, hashedPassword)) {
+                alert("ログイン成功");
+                 // 質問回答ページに遷移
+                window.location.href = "q_and_a.html";
+            } else {
+                alert("ユーザーID又はパスワードが無効のためログイン失敗");
+            }
+        })
+    </script>
+</body>
+
+</html>

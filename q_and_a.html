@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポーター教授のファイブフォース</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css"> -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>ポーター教授のファイブフォース分析</h1>
+        </div>
+        <div class="poter-image-small">
+            <img src="images/michael porter.png" alt="マイケル・ポーター">
+        </div>
+        
+        <h3>ファイブフォース分析を行うために質問に回答してください</h3>
+        <p style="font-weight: bold; color: #f00;;" >★ポーター教授からの回答のポイント★</p>
+        <p style="font-weight: bold;">1.箇条書きがオススメ！</p>
+        <p style="font-weight: bold;">2.文章ではなく、なるべく単語で書きましょう！</p>
+        
+        
+        <div id="chatbox" class="chatbox">
+            <!-- チャットによる質問表示エリア -->
+            <p class="question-text"></p>
+        </div>
+
+        <!-- 回答エリア -->
+        <form id="chatAnswer" class="chat-answer">
+            <textarea id="userAnswer" placeholder="回答を入力してください"></textarea>
+            <button type="submit">回答する</button>
+        </form>
+
+    </div>
+
+    <footer>
+        <p>© 2024 COM-office</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
