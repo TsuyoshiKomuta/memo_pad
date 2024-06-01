@@ -18,6 +18,7 @@ const questions = [
 
 let currentQuestionIndex = 0;
 const totalQuestions = questions.length;
+let isComposing = false;  // 変換中かどうかのフラグ
 
 function showQuestion() {
     if (currentQuestionIndex < totalQuestions) {
@@ -69,8 +70,18 @@ $("#chatAnswer").on("submit", function (event) {
     }
 });
 
+// 日本語入力の変換中の状態を監視
+$("#userAnswer").on("compositionstart", function () {
+    isComposing = true;
+});
+
+$("#userAnswer").on("compositionend", function () {
+    isComposing = false;
+});
+
+// Enterキーの押下を監視
 $("#userAnswer").on("keydown", function (event) {
-    if (event.key === "Enter" && !event.shiftKey) {
+    if (event.key === "Enter" && !event.shiftKey && !isComposing) {
         event.preventDefault();
         $("#chatAnswer").submit();
     }
