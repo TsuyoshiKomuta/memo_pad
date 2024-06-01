@@ -15,32 +15,31 @@
         <div class="title">
             <h1>ポーター教授のファイブフォース分析</h1>
         </div>
-        <div class="poter-image-small">
-            <img src="images/michael porter.png" alt="マイケル・ポーター">
-        </div>
-        
+
         <h3>ファイブフォース分析を行うために質問に回答してください</h3>
-        <p style="font-weight: bold; color: #f00;;" >★ポーター教授からの回答のポイント★</p>
+        <p style="font-weight: bold; color: #f00;;">★ポーター教授からの回答のポイント★</p>
         <p style="font-weight: bold;">1.箇条書きがオススメ！</p>
-        <p style="font-weight: bold;">2.文章ではなく、なるべく単語で書きましょう！</p>
-        
-        
+        <p style="font-weight: bold;">2.表現は簡潔に！</p>
+
+
         <div id="chatbox" class="chatbox">
             <!-- チャットによる質問表示エリア -->
             <p class="question-text"></p>
         </div>
 
         <!-- 回答エリア -->
+        <div id="remainingQuestions" class="remaining-questions">あと<span id="remainingCount">15</span>問です</div>
         <form id="chatAnswer" class="chat-answer">
-            <textarea id="userAnswer" placeholder="回答を入力してください"></textarea>
+            <textarea id="userAnswer" placeholder="回答を入力（shift+return: 改行, return: 回答を送信）"></textarea>
             <button type="submit">回答する</button>
         </form>
+        <footer>
+            <p>© 2024 COM-office</p>
+        </footer>
 
     </div>
 
-    <footer>
-        <p>© 2024 COM-office</p>
-    </footer>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>

@@ -18,6 +18,7 @@
         <div class="poter-image">
             <img src="images/michael porter.png" alt="マイケル・ポーター">
         </div>
+
         <p style="font-weight: 300; font-family: Arial, sans-serif;">
             「ポーター教授のファイブフォース分析」は、あなたが所属する会社の環境分析をWeb上で行えるサイトです。
         </p>
@@ -26,18 +27,20 @@
             各３つずつの質問に答えることで、ハーバード大学教授のマイケル・ポーター氏が提唱する<br>
             「ファイブフォース」フレームワークに沿った自社の外部環境の可視化が行えます。
         </p>
-        
+
         <form id="signinForm">
             <input type="text" id="userId" placeholder="ユーザーID">
             <input type="password" id="password" placeholder="パスワード">
             <button type="submit-login">ログイン</button>
         </form>
         <p>アカウントがない場合は<a href="sign_up.html">こちら</a>からアカウントを作成してください。</p>
+        <footer>
+            <p>© 2024 COM-office</p>
+        </footer>
+
     </div>
 
-    <footer>
-        <p>© 2024 COM-office</p>
-    </footer>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
@@ -49,13 +52,13 @@
 
             // bcryptjsをbcryptとして定義
             const bcrypt = dcodeIO.bcrypt;
-            
+
             // LocalStrageからハッシュ化されたパスワードを取得
             const hashedPassword = localStorage.getItem(userId);
 
             if (hashedPassword && bcrypt.compareSync(password, hashedPassword)) {
                 alert("ログイン成功");
-                 // 質問回答ページに遷移
+                // 質問回答ページに遷移
                 window.location.href = "q_and_a.html";
             } else {
                 alert("ユーザーID又はパスワードが無効のためログイン失敗");

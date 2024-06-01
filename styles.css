@@ -2,21 +2,21 @@ body {
     background-color: #f5f5f5;
     display: flex;
     justify-content: center;
-    align-items: center; /* 縦方向中央揃え */
     height: 100vh;
-    margin: 0; /* 余白をリセット */
+    margin: 0;
+    /* 余白をリセット */
 }
 
 .container {
     width: 65%;
     background-color: #ffffff;
     max-width: 1600px;
-    min-height: 80vh; /* 高さを増やす */
+    min-height: 140vh;
+    /* 高さを増やす */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-bottom: 80px; /* フッターの高さを考慮 */
 }
 
 /* タイトル */
@@ -77,76 +77,240 @@ form button:hover {
     background-color: #0067C0;
 }
 
+/* チャット部分のCSS */
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.chat-message.bot {
+    justify-content: flex-start;
+}
+
+.chat-message.user {
+    justify-content: flex-end;
+}
+
+.chat-message .porter {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-message .message {
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    position: relative;
+}
+
+.chat-message.bot .message {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+.chat-message.user .message {
+    background-color: #90ee90;
+    color: #000;
+}
+
+/* フキダシ部分の三角形のスタイル */
+.chat-message.bot .message::before,
+.chat-message.user .message::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    border-width: 10px;
+    border-style: solid;
+}
+
+/* 残質問カウンタのCSS */
+.remaining-questions {
+    font-size: 12px;
+    color: #0000ff;
+    margin-bottom: 10px;
+    text-align: right;
+    width: 100%;
+    max-width: 800px;
+}
+
+.chat-message.bot .message::before {
+    left: -20px;
+    border-color: transparent #e0e0e0 transparent transparent;
+}
+
+.chat-message.user .message::before {
+    right: -20px;
+    border-color: transparent transparent transparent #90ee90;
+}
+
 .chat-answer {
     width: 100%;
     max-width: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: auto; /* 回答エリアを最下部に配置 */
+    margin-top: auto;
+    /* 回答エリアを最下部に配置 */
 }
 
 .chat-answer textarea {
-    width: 90%; /* 横幅を広げる */
-    height: 150px; /* 縦幅を広げる */
-    margin-bottom: 20px; /* 下に余裕をもたせる */
-    padding: 10px; /* 内側の余白を追加 */
-    box-sizing: border-box; /* パディングを含めたサイズ指定 */
-    font-size: 16px; /* フォントサイズを調整 */
+    width: 90%;
+    /* 横幅を広げる */
+    height: 150px;
+    /* 縦幅を広げる */
+    margin-bottom: 20px;
+    /* 下に余裕をもたせる */
+    padding: 10px;
+    /* 内側の余白を追加 */
+    box-sizing: border-box;
+    /* パディングを含めたサイズ指定 */
+    font-size: 16px;
+    /* フォントサイズを調整 */
 }
 
 .chat-answer button {
-    padding: 15px 30px; /* ボタンの内側の余白を追加 */
-    font-size: 16px; /* フォントサイズを調整 */
-    background-color: #65BBE9; /* ボタンの背景色を変更 */
-    color: #fff; /* ボタンの文字色を変更 */
-    border: none; /* ボタンの境界線を削除 */
-    border-radius: 5px; /* ボタンの角を丸める */
-    cursor: pointer; /* カーソルをポインターに変更 */
-    margin-top: 20px; /* 上に余裕をもたせる */
+    padding: 15px 30px;
+    /* ボタンの内側の余白を追加 */
+    font-size: 16px;
+    /* フォントサイズを調整 */
+    background-color: #65BBE9;
+    /* ボタンの背景色を変更 */
+    color: #fff;
+    /* ボタンの文字色を変更 */
+    border: none;
+    /* ボタンの境界線を削除 */
+    border-radius: 5px;
+    /* ボタンの角を丸める */
+    cursor: pointer;
+    /* カーソルをポインターに変更 */
+    margin-top: 20px;
+    /* 上に余裕をもたせる */
 }
 
 .chat-answer button:hover {
-    background-color: #5b4bd4; /* ボタンのホバー時の色を変更 */
+    background-color: #5b4bd4;
+    /* ボタンのホバー時の色を変更 */
 }
 
 /* 質問テキスト用のクラス */
 .question-text {
     color: blue;
-    font-weight: bold; /* 必要に応じてフォントの太さも指定 */
+    font-weight: bold;
+    /* 必要に応じてフォントの太さも指定 */
 }
 
-.new-entrants {
-    background-color: #ffcccb; /* 赤色の背景 */
+/* ファイブフォースフレームのCSS */
+.force-diagram {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 20px;
+    width: 80%;
+    margin: 20px auto;
+    justify-items: center;
+    align-items: center;
+    position: relative;
 }
 
-.buyer-power {
-    background-color: #ccffcc; /* 緑色の背景 */
+#newEntrants {
+    grid-column: 2;
+    grid-row: 1;
+    background-color: #ffcccb;
+    margin-bottom: 10px;
 }
 
-.supplier-power {
-    background-color: #ccccff; /* 青色の背景 */
+#buyerPower {
+    grid-column: 3;
+    grid-row: 2;
+    background-color: #ccffcc;
+    margin-left: 80px;
 }
 
-.substitutes {
-    background-color: #ffffcc; /* 黄色の背景 */
+#industryRivalry {
+    grid-column: 2;
+    grid-row: 2;
+    background-color: #ffccff;
 }
 
-.industry-rivalry {
-    background-color: #ffccff; /* ピンク色の背景 */
+#supplierPower {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: #ccccff;
+    margin-right: 8ch;
 }
 
-/* 他のスタイルも必要に応じて追加してください */
+#substitutes {
+    grid-column: 2;
+    grid-row: 3;
+    background-color: #ffffcc;
+    margin-top: 10px;
+}
 
+.force-item {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.force-item h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+}
+
+/* 矢印のスタイル */
+.arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+}
+
+.arrow-top {
+    border-width: 0 15px 15px 15px;
+    border-color: transparent transparent #000 transparent;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.arrow-right {
+    border-width: 15px 0 15px 15px;
+    border-color: transparent transparent transparent #000;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+}
+
+.arrow-bottom {
+    border-width: 15px 15px 0 15px;
+    border-color: #000 transparent transparent transparent;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.arrow-left {
+    border-width: 15px 15px 15px 0;
+    border-color: transparent #000 transparent transparent;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+}
 
 /* フッターのCSS */
 footer {
     text-align: center;
     width: 100%;
-    background-color: #797979; /* 任意で背景色を追加 */
-    color: #ffffff;
-    position: fixed;
+    color: #ad8ef0;
     bottom: 0;
     left: 0;
-    padding: 10px 0; /* パディングを追加 */
 }
